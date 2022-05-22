@@ -1,0 +1,52 @@
+#include<cstring>
+void reverseStringWordWise(char input[]) {
+     //finding the length of the string 
+   int i=0;
+    char temp;
+    //swapping of whole string
+    int start=0, end=strlen(input)-1;
+    while(start <= end)
+    {
+        temp=input[start];
+        input[start]=input[end];
+        input[end]=temp;
+        start++;
+        end--;
+    }
+    //swapping each word now
+    //DRY RUN KAR TABHI SAMJH AYEGA...
+    i=0; //traversing with i and holding upon with two pointers start and end
+    start=0; //assigned a pointer on first index
+    while(input[i]!='\0')
+    {
+        if(input[i]==' ')
+        {
+            end=i-1; //put a end pointer to end of the letter. 
+            while(start<=end)
+            {
+                temp=input[start];
+                input[start]=input[end];
+                input[end]=temp;
+                start++;
+                end--;
+            }
+            start=i+1; //shift start pointer to starting letter of another word
+        }
+        
+        if(input[i+1]=='\0')  //when all the words are readed and a null is encountered 
+                             //rather then a space then we use 
+        {                   //this loop for swapping in it
+            end=i;
+            while(start<=end)
+            {
+                temp=input[start];
+                input[start]=input[end];
+                input[end]=temp;
+                start++;
+                end--;
+            }
+        }
+        i++;
+    }
+    
+}
