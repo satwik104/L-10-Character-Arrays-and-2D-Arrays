@@ -1,0 +1,26 @@
+string getCompressedString(string &input) {
+  	if(input.length()==0){
+        return "";//empty string
+    }
+    int si=0,ei=0;//starting index,ending index
+    string ans="";//making an output string
+    while(si<input.length())
+    {
+        while(ei<input.length()&&input[si]==input[ei])
+        {
+            ei++;
+        }
+        int count=ei-si;
+        if(count!=1)//for characters which are more then 1
+        {
+            ans+=input[si];//putting character in string, concatination
+            ans+=(char)count+'0';//typecasting is happning here...v can also write ans+=count+48;
+        }
+        else
+        {
+            ans+=input[si];
+        }
+        si=ei;
+    }
+    return ans;
+}
