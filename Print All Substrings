@@ -1,0 +1,20 @@
+void printSubstrings(char input[]) {
+    int n=strlen(input);
+    int start,length,end,substring_index;
+    //to get a hold on length of substring
+    //so first it will print all substrings of 
+    //length 1 then 2 and the till n
+    for(length=1; length<=n; length++)
+    {
+        //to pick the starting index of the substring
+        for(start=0; start<=n-length; start++)
+        {
+            //to pick the ending index of substring
+         end=start+length-1;
+            //the real loop to print the substrings
+        for( substring_index=start; substring_index<=end; substring_index++)
+            cout<<input[substring_index];
+            cout<<endl;
+        }
+    }   
+}
