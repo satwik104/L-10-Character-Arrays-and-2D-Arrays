@@ -1,0 +1,13 @@
+void removeConsecutiveDuplicates(char input[]) {
+    
+  int i,j=1,l=strlen(input);
+    for(i=1; i<l; i++)
+    {
+        if(input[i]!=input[i-1])
+        {
+                input[j]=input[i];//j is determining the last character here
+                j++;
+        }
+    }
+    input[j]='\0';
+}
